@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ANOTHER studio</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -107,11 +106,11 @@
         margin-bottom: auto;
         height: 100%;
       }
+      .content__right {
+        padding: 0 1.25rem;
+      }
       .content__left {
         padding-right: 2rem;
-      }
-      .content__right {
-        background-color: gray;
       }
       .left {
         flex-basis: 40%;
@@ -149,6 +148,56 @@
       .button:focus {
         color: #8c40fb;
         background-color: #f7ffa1;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.25rem;
+      }
+
+      label {
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      input, textarea {
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+        height: 2.5rem;
+      }
+
+      textarea {
+        resize: none;
+        height: 15rem;
+      }
+
+      .card-footer {
+        text-align: left;
+        padding: 15px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      @media (max-width: 600px) {
+        .card {
+          width: 90%;
+        }
       }
 
       @media (min-width: 500px) {
@@ -207,6 +256,7 @@
   <body>
     <header class="header">
       <div class="header__logo left">
+        <a href="https://weareanother.studio">
         <svg
           width="137"
           height="38"
@@ -243,6 +293,7 @@
             fill="white"
           />
         </svg>
+        </a>
       </div>
       <div class="header__line right"></div>
     </header>
@@ -253,18 +304,37 @@
         <p>Bla Bla Bla</p>
       </div>
       <div class="content__right right">
+        <form>
+          <label for="fullname">Full name:</label>
+          <input type="text" id="fullname" name="fullname" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone number:</label>
+          <input type="tel" id="phone" name="phone" required>
+
+          <label for="website">Website:</label>
+          <input type="website" id="website" name="website" required>
+          <label for="message">Message:</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+          ></textarea>
+        </form>
         <button class="button">Send message</button>
       </div>
     </section>
     <footer class="footer">
       <div class="footer__url left">
-        <h3>WEAREANOTHER.STUDIO</h3>
+         <a href="https://weareanother.studio" style='color: white; text-decoration: none;'>
+        <h3>WEAREANOTHER.STUDIO</h3></a>
       </div>
       <div class="footer__loc right">
         <small>HOME</small>
-        <small><a class="link" href="/">Download our credentials PDF</a></small>
+        <small><a class="link" target='_blank' href="overview.pdf">Download our credentials PDF</a></small>
       </div>
     </footer>
-    <script src="index.js"></script>
   </body>
 </html>
