@@ -43,7 +43,7 @@ h2 {
 	line-height: 1.95rem;
 
 	font-weight: 500;
-	max-width: 32.25rem;
+	max-width: 34.25rem;
 }
 h2 + h2 {
 	margin-top: 0.5em;
@@ -144,15 +144,21 @@ small {
 .right {
 	flex-basis: 60%;
 }
-.link--pdf.link {
-	margin-top: 4rem;
-	display: none;
-}
 
+.docu {
+	display: none;
+	margin-top: 4rem;
+	font-weight: 500;
+	max-width: 30.375rem;
+	line-height: 1.5;
+}
+.docu div {
+	margin-top: 1.5em;
+}
 .link {
 	text-decoration: none;
 	border: 0;
-
+	font-weight: 500;
 	color: white;
 	transition: all 0.2s;
 	padding-inline: 0.1875rem;
@@ -161,7 +167,6 @@ small {
 	gap: 0.5rem;
 	align-items: center;
 	transition: all 0.2s;
-	font-weight: 500;
 }
 .link span {
 	transition: all 0.2s;
@@ -355,6 +360,9 @@ button:hover {
 	}
 	.link--pdf2.link {
 		display: none;
+	}
+	.docu {
+		display: block;
 	}
 	.link--pdf.link {
 		display: inline-flex;
