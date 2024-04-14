@@ -1,10 +1,15 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-$folder = 'images/'; // Change this to the path of your image folder
-$images = array_diff(scandir($folder), array('.', '..')); // Remove '.' and '..' from the list
-
 header('Content-Type: application/json');
-echo json_encode($images);
+$imagesDirectory = 'images/';
+$images = scandir($imagesDirectory);
+$imageList = [];
+
+foreach ($images as $img) {
+    // Skipping directories and only adding image files
+    if (is_file($imagesDirectory . $img) && preg_match('/\.(jpg|jpeg|png|gif)$/i', $img)) {
+        $imageList[] = $imagesDirectory . $img;
+    }
+}
+
+echo json_encode($imageList);
 ?>

@@ -1,14 +1,17 @@
-window.onload = function () {
-	fetch("images.php")
-		.then((response) => response.json())
-		.then((data) => {
-			const gallery = document.getElementById("gallery");
-			data.forEach((image) => {
-				let imgElement = document.createElement("img");
-				imgElement.src = `images/${image}`; // Ensure the path here matches the PHP script
-				imgElement.alt = "Portfolio Image";
-				gallery.appendChild(imgElement);
-			});
-		})
-		.catch((error) => console.error("Error loading the images:", error));
-};
+fetch("images.php")
+	.then((response) => {
+		if (!response.ok) {
+			throw new Error("Network response was not ok");
+		}
+		return response.json();
+	})
+	.then((images) => {
+		const gallery = document.getElementById("gallery");
+		images.forEach((image) => {
+			const img = document.createElement("img");
+			img.src = image;
+			img.alt = "Gallery image";
+			gallery.appendChild(img);
+		});
+	})
+	.catch((error) => console.error("Error loading the images:", error));
