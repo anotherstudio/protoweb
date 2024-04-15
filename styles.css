@@ -349,7 +349,8 @@ button:hover {
 	}
 }
 @media (hover: hover) {
-	.header__lang:focus-within {
+	.header__lang:focus-within,
+	.header__lang:hover {
 		border-bottom: 3px solid white;
 		transition: all 0.2s;
 	}
