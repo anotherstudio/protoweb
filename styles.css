@@ -38,6 +38,17 @@ h1 {
 	margin-bottom: 0.3em;
 	text-transform: uppercase;
 }
+.visuallyHidden {
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap; /* Prevent content from wrapping */
+	border: 0; /* Remove borders */
+	padding: 0; /* Remove padding */
+	margin: 0; /* Remove margins */
+}
 h2 {
 	font-size: 1.375rem;
 	line-height: 1.95rem;
