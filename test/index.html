@@ -3,9 +3,47 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Image Gallery</title>
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<div id="gallery"></div>
+		<header class="sidebar">
+			<img
+				class="sidebar-logo --desktop"
+				src="logo--desktop.svg"
+				alt="Mana logo"
+			/>
+			<img
+				class="sidebar-logo --mobile"
+				src="logo--mobile.svg"
+				alt="Mana logo"
+			/>
+			<div class="sidebar-buttons">
+				<button id="shuffleButton" class="sidebar-buttons__shuffle">
+					<img src="refresh.svg" alt="Mana logo" />
+					<span class="visuallyHidden">Shuffle images</span>
+				</button>
+				<div class="sidebar-buttons__shuffle-title">Shuffle</div>
+				<a href="mailto:martinmana808@gmail.com">
+					<img src="mail.svg" alt="Envelope icon" />
+					<span class="visuallyHidden">Send me an email</span>
+				</a>
+				<a href="https://weareanother.studio" target="_blank">
+					<img src="shop.svg" alt="Shop icon" />
+					<span class="visuallyHidden"
+						>Go to Another Studio website</span
+					>
+				</a>
+			</div>
+		</header>
+
+		<main>
+			<div id="gallery" class="gallery"></div>
+			<div id="myModal" class="modal">
+				<span class="close">CLOSE</span>
+				<img class="modal-content" id="img01" />
+				<div id="caption"></div>
+			</div>
+		</main>
 		<script src="script.js"></script>
 	</body>
 </html>
