@@ -72,6 +72,10 @@ p {
 		justify-content: initial;
 	}
 }
+.sidebar-logo.--mobile {
+	position: relative;
+	top: 5px;
+}
 .sidebar-logo.--desktop {
 	display: none;
 }
@@ -105,17 +109,29 @@ p {
 	display: none;
 }
 @media (min-width: 31.25em) {
-}
-@media (min-width: 43.75em) {
-	.sidebar-buttons__shuffle-title {
-		margin-right: 2rem;
-		display: block;
-	}
 	.gallery {
 		column-count: 2;
 	}
 }
+.sidebar-buttons__line {
+	height: 32.2px;
+	width: 1px;
+	display: flex;
+	background-color: black;
+}
+@media (min-width: 43.75em) {
+	.sidebar-buttons__shuffle-title {
+		/* margin-right: 2rem; */
+		display: block;
+	}
+	.gallery {
+		column-count: 3;
+	}
+}
 @media (min-width: 62.5em) {
+	.sidebar-buttons__line {
+		display: none;
+	}
 	.sidebar-buttons__shuffle-title {
 		margin-right: 0;
 		display: block;
@@ -187,8 +203,13 @@ p {
 		column-count: 3;
 	}
 }
+
 @media (min-width: 80em) {
+	.gallery {
+		column-count: 4;
+	}
 }
+
 .image-container {
 	max-width: none !important;
 	width: 100%;
@@ -198,7 +219,7 @@ p {
 	object-fit: contain;
 	height: auto !important;
 	background-size: contain;
-	background-color: rgb(232, 232, 232);
+	background-color: rgb(240 240 240);
 }
 /* Style the modal (full-screen image overlay) */
 /* .modal {
@@ -216,6 +237,7 @@ p {
 } */
 
 .modal {
+	cursor: pointer;
 	display: none; /* Initially hidden */
 	position: fixed; /* Stay in place */
 	z-index: 1; /* Sit on top */
@@ -224,10 +246,30 @@ p {
 	width: 100%; /* Full width */
 	height: 100%; /* Full height */
 	overflow: auto; /* Enable scroll if needed */
-	transition: left 0.5s ease; /* Smooth transition for sliding effect */
+	transition: left 1s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth transition for sliding effect */
 	background-color: white;
+	padding: var(--gap);
+	padding-top: 5.125rem;
+}
+@media (min-width: 62.5em) {
+	.modal-content {
+		max-width: 100%;
+	}
+
+	.modal {
+		width: calc(100% - 89px); /* Full width */
+		height: 100%; /* Full height */
+		padding-top: var(--gap);
+	}
+}
+.close {
+	opacity: 0; /* Start with the close button hidden */
+	transition: opacity 200ms ease-in-out; /* Smooth transition for opacity changes */
 }
 
+.close.show {
+	opacity: 1; /* Fully visible when the modal is open */
+}
 .modal.show {
 	display: block;
 	left: 105px; /* Slide in to view - sidebar mas gap*/
@@ -237,22 +279,33 @@ p {
 .modal-content {
 	margin: auto;
 	display: block;
-	width: 80%;
-	max-width: 700px;
-	transition: transform 0.5s ease; /* Smooth transition for scaling */
+	max-height: 100%;
+	/* if disabled the above makes a nice full window modal */
+	transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth transition for scaling */
+	border-radius: 8px;
+	cursor: initial;
 }
 
 /* The Close Button */
 .close {
-	position: absolute;
-	top: 15px;
-	right: 35px;
-	color: #f1f1f1;
-	font-size: 40px;
-	font-weight: bold;
+	position: fixed;
+	top: 18px;
+	right: 11px;
+
 	cursor: pointer;
+	display: block;
+	background: white;
+	padding: 8px;
+	border-radius: 0 8px 0 4px;
 }
 
+@media (min-width: 62.5em) {
+	.close {
+		position: absolute;
+		top: 16px;
+		right: 16px;
+	}
+}
 /* 
 
 .image-container {

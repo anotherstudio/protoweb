@@ -17,7 +17,7 @@ foreach ($images as $img) {
 
 shuffle($imageList); // Shuffle the list of images to randomize their order
 
-$maxImages = 10; // Maximum number of images to return
+$maxImages = 30; // Maximum number of images to return
 $imageList = array_slice($imageList, 0, $maxImages); // Limit the array to the first 10 shuffled images
 
 echo json_encode($imageList);

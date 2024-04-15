@@ -2,6 +2,7 @@
 var modal = document.getElementById("myModal");
 var modalImg = document.getElementById("img01");
 var span = document.getElementsByClassName("close")[0];
+var body = document.body; // Get the body element to modify later
 
 document.addEventListener("DOMContentLoaded", function () {
 	setupModal(); // Setup modal first to ensure elements are initialized
@@ -16,11 +17,31 @@ document.addEventListener("DOMContentLoaded", function () {
 function setupModal() {
 	// Use the globally defined 'modal' and related elements
 	span.onclick = function () {
-		modal.style.left = "100%"; // Slide out
-		setTimeout(() => {
-			modal.style.display = "none";
-		}, 500);
+		closeModal(); // Use closeModal function to close modal
 	};
+
+	// Close the modal when clicking on the background of the modal
+	modal.addEventListener("click", function (event) {
+		if (event.target === modal) {
+			closeModal(); // Use closeModal function to close modal
+		}
+	});
+
+	// Add event listener for the ESC key to close the modal
+	document.addEventListener("keydown", function (event) {
+		if (event.key === "Escape") {
+			closeModal(); // Use closeModal function to close modal
+		}
+	});
+}
+
+function closeModal() {
+	span.classList.remove("show"); // Start fade out
+	modal.style.left = "100%"; // Slide out
+	setTimeout(() => {
+		modal.style.display = "none";
+		enableScrolling(); // Re-enable scrolling when modal is closed
+	}, 500);
 }
 
 function fetchImages() {
@@ -46,8 +67,17 @@ function fetchImages() {
 					event.preventDefault();
 					modal.style.display = "block";
 					modalImg.src = image.url;
+					disableScrolling(); // Disable scrolling when modal is opened
+					if (window.innerWidth < 1000) {
+						// Reset scroll position for smaller screens
+						modal.scrollLeft = 0;
+					}
 					setTimeout(() => {
-						modal.style.left = "0"; // Slide in
+						modal.style.left =
+							window.innerWidth >= 1000 ? "89px" : "0"; // Set left position based on screen width
+						setTimeout(() => {
+							span.classList.add("show"); // Add class to start fade-in after modal is positioned
+						}, 200);
 					}, 10);
 				};
 
@@ -55,4 +85,14 @@ function fetchImages() {
 			});
 		})
 		.catch((error) => console.error("Error loading the images:", error));
+}
+
+function disableScrolling() {
+	if (window.innerWidth >= 1000) {
+		body.style.overflow = "hidden"; // Disable scrolling on desktop
+	}
+}
+
+function enableScrolling() {
+	body.style.overflow = ""; // Re-enable scrolling
 }

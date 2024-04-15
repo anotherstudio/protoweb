@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<title>Image Gallery</title>
 		<link rel="stylesheet" href="styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	</head>
 	<body>
 		<header class="sidebar">
@@ -23,6 +24,7 @@
 					<span class="visuallyHidden">Shuffle images</span>
 				</button>
 				<div class="sidebar-buttons__shuffle-title">Shuffle</div>
+				<div class="sidebar-buttons__line"></div>
 				<a href="mailto:martinmana808@gmail.com">
 					<img src="mail.svg" alt="Envelope icon" />
 					<span class="visuallyHidden">Send me an email</span>
@@ -39,7 +41,8 @@
 		<main>
 			<div id="gallery" class="gallery"></div>
 			<div id="myModal" class="modal">
-				<span class="close">CLOSE</span>
+				<img class="close" src="close.svg" alt="Close icon" />
+
 				<img class="modal-content" id="img01" />
 				<div id="caption"></div>
 			</div>
