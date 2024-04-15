@@ -119,7 +119,7 @@ small {
 	padding-right: 2rem;
 }
 .footer__loc {
-	display: flex;
+	display: none;
 	justify-content: flex-start;
 }
 .footer__loc small:first-child {
@@ -146,11 +146,13 @@ small {
 }
 
 .docu {
-	display: none;
-	margin-top: 3rem;
+	margin-top: 4rem;
 	font-weight: 500;
-	max-width: 30.375rem;
-	line-height: 1.5;
+	max-width: 32.375rem;
+	line-height: 1.6;
+}
+.docu.--desktop {
+	display: none;
 }
 .docu div {
 	margin-top: 1.5em;
@@ -177,10 +179,10 @@ small {
 	background-color: white;
 }
 .button {
+	text-decoration: none !important;
 	width: 100%;
-	display: block;
+	display: flex;
 	border-radius: 6px;
-	background-color: #8c40fb;
 	color: white;
 	transition: all 0.3s;
 	font-size: 1.25rem;
@@ -189,11 +191,27 @@ small {
 	border: 0;
 	outline: 0;
 	height: 3.75rem;
+	align-items: center;
+	gap: 0.5rem;
+	justify-content: center;
 }
-.button:hover,
-.button:focus {
-	color: #8c40fb;
+.button.--primary {
+	background-color: #8c40fb;
+}
+.button.--primary:hover,
+.button.--primary:focus {
+	color: #191919;
 	background-color: #f7ffa1;
+}
+.button.--secondary {
+	background-color: #333333;
+	display: inline-flex;
+	width: auto;
+}
+.button.--secondary:hover,
+.button.--secondary:focus {
+	color: #191919;
+	background-color: white;
 }
 .form-group {
 	position: relative;
@@ -339,7 +357,7 @@ button:hover {
 	}
 	.button {
 		width: auto;
-		display: inline-block;
+		display: inline-flex;
 	}
 	body {
 		padding: 3rem;
@@ -356,8 +374,16 @@ button:hover {
 	}
 }
 @media (min-width: 62.5em) {
+	.docu.--desktop {
+		display: block;
+		margin-top: 2rem;
+	}
+	.docu.--mobile {
+		display: none;
+	}
 	.footer__loc {
 		justify-content: space-between;
+		display: flex;
 	}
 	.link--pdf2.link {
 		display: none;
