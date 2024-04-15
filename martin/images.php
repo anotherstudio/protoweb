@@ -5,7 +5,7 @@ $images = scandir($imagesDirectory);
 $imageList = [];
 
 foreach ($images as $img) {
-    if (is_file($imagesDirectory . $img) && preg_match('/\.(jpg|jpeg|png|gif)$/i', $img)) {
+    if (is_file($imagesDirectory . $img) && preg_match('/\.(jpg|jpeg|png|gif|webp)$/i', $img)) {
         list($width, $height) = getimagesize($imagesDirectory . $img);
         $imageList[] = [
             'url' => $imagesDirectory . $img,
@@ -14,6 +14,7 @@ foreach ($images as $img) {
         ];
     }
 }
+
 
 shuffle($imageList); // Shuffle the list of images to randomize their order
 
