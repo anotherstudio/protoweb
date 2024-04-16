@@ -31,7 +31,7 @@ h3 {
 	margin: 0;
 }
 h1 {
-	font-size: 54px;
+	font-size: 3.375rem;
 	line-height: 1;
 	font-weight: 900;
 	max-width: 35rem;
@@ -114,7 +114,7 @@ small {
 	transform-origin: left;
 }
 .header__line {
-	height: 1px;
+	height: 0.0625rem;
 	background-color: white;
 	margin-left: auto;
 	display: none;
@@ -166,7 +166,8 @@ small {
 	display: none;
 }
 .docu div {
-	margin-top: 32px;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 .link {
 	text-decoration: none;
@@ -193,7 +194,7 @@ small {
 	text-decoration: none !important;
 	width: 100%;
 	display: flex;
-	border-radius: 6px;
+	border-radius: 0.375rem;
 	color: white;
 	transition: all 0.3s;
 	font-size: 1.25rem;
@@ -228,10 +229,10 @@ small {
 	position: relative;
 }
 .form-group + .form-group {
-	margin-top: 16px;
+	margin-top: 1rem;
 }
 .form-group + .form-group:last-child {
-	margin-top: 32px;
+	margin-top: 2rem;
 }
 select {
 	appearance: none;
@@ -249,7 +250,7 @@ form {
 	margin-bottom: 4rem;
 	display: flex;
 	flex-direction: column;
-	max-width: 700px;
+	max-width: 43.75rem;
 }
 
 label {
@@ -266,7 +267,7 @@ input,
 textarea {
 	padding: 1rem;
 	border: 0;
-	border-radius: 4px;
+	border-radius: 0.25rem;
 	outline: none;
 	height: 3.5rem;
 	font-size: 1rem;
@@ -278,15 +279,15 @@ textarea {
 textarea {
 	resize: none;
 	min-height: 11.25rem;
-	padding-top: 17px;
+	padding-top: 1.0625rem;
 }
 
 button {
-	padding: 10px 20px;
+	padding: 0.625rem 1.25rem;
 	background-color: #4caf50;
 	color: #ffffff;
 	border: none;
-	border-radius: 4px;
+	border-radius: 0.25rem;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 }
@@ -299,7 +300,7 @@ button:hover {
 }
 .footer__line {
 	border-bottom: 1px solid white;
-	height: 1px;
+	height: 0.0625rem;
 	width: 100%;
 }
 .link--pdf2.link {
@@ -321,7 +322,7 @@ button:hover {
 	label {
 		position: absolute;
 		left: 1.25rem;
-		top: 24px;
+		top: 1.5rem;
 		color: #191919;
 		margin-bottom: 0;
 	}
@@ -377,13 +378,7 @@ button:hover {
 		padding-right: 2rem;
 	}
 }
-@media (hover: hover) {
-	.header__lang:focus-within,
-	.header__lang:hover {
-		border-bottom: 3px solid white;
-		transition: all 0.2s;
-	}
-}
+
 @media (min-width: 62.5em) {
 	.docu.--desktop {
 		display: block;
@@ -414,7 +409,7 @@ button:hover {
 	}
 	.header__lang {
 		border-bottom: 1px solid white;
-		padding-bottom: 10px;
+		padding-bottom: 0.625rem;
 		top: 0;
 	}
 	.content {
@@ -447,9 +442,6 @@ button:hover {
 	.header__line {
 		display: block;
 	}
-	/* .content__right {
-		padding: 0 1.25rem;
-	} */
 	.content__left {
 		padding-right: 4rem;
 		display: flex;
@@ -468,5 +460,13 @@ button:hover {
 	}
 	.content__left {
 		padding-right: 8rem;
+	}
+}
+
+@media (hover: hover) {
+	.header__lang:focus-within,
+	.header__lang:hover {
+		border-bottom: 3px solid white;
+		transition: all 0.2s;
 	}
 }

@@ -21,11 +21,6 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-@media (min-width: 62.5em) {
-	body {
-		flex-direction: row;
-	}
-}
 main {
 	width: 100%;
 }
@@ -48,12 +43,11 @@ p {
 	width: 1px;
 	overflow: hidden;
 	clip: rect(1px, 1px, 1px, 1px);
-	white-space: nowrap; /* Prevent content from wrapping */
-	border: 0; /* Remove borders */
-	padding: 0; /* Remove padding */
-	margin: 0; /* Remove margins */
+	white-space: nowrap;
+	border: 0;
+	padding: 0;
+	margin: 0;
 }
-
 .sidebar {
 	display: flex;
 	flex-shrink: 0;
@@ -64,14 +58,6 @@ p {
 	background-color: white;
 	justify-content: space-between;
 }
-@media (min-width: 62.5em) {
-	.sidebar {
-		padding: var(--gap) 0 0 var(--gap);
-		height: 100vh;
-		flex-direction: column;
-		justify-content: initial;
-	}
-}
 .sidebar-logo.--mobile {
 	position: relative;
 	top: 5px;
@@ -79,18 +65,11 @@ p {
 .sidebar-logo.--desktop {
 	display: none;
 }
-
 .sidebar-buttons {
 	display: flex;
 	align-items: center;
 	gap: 12px;
 	height: 100%;
-}
-@media (min-width: 62.5em) {
-	.sidebar-buttons {
-		flex-direction: column;
-		margin-top: 3rem;
-	}
 }
 .sidebar-buttons__shuffle {
 	position: relative;
@@ -98,7 +77,6 @@ p {
 .sidebar-buttons__shuffle:hover + .sidebar-buttons__shuffle-title {
 	opacity: 1;
 }
-
 .gallery {
 	column-count: 1;
 	column-gap: var(--gap);
@@ -108,20 +86,75 @@ p {
 .sidebar-buttons__shuffle-title {
 	display: none;
 }
-@media (min-width: 31.25em) {
-	.gallery {
-		column-count: 2;
-	}
-}
 .sidebar-buttons__line {
 	height: 32.2px;
 	width: 1px;
 	display: flex;
 	background-color: black;
 }
+.image-container {
+	max-width: none !important;
+	width: 100%;
+	display: block;
+	margin-bottom: var(--gap);
+	border-radius: 8px;
+	object-fit: contain;
+	height: auto !important;
+	background-size: contain;
+	background-color: rgb(240 240 240);
+}
+.modal {
+	cursor: pointer;
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 100%;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	transition: left 1s cubic-bezier(0.22, 1, 0.36, 1);
+	background-color: white;
+	padding: var(--gap);
+	padding-top: 5.125rem;
+}
+.close {
+	opacity: 0;
+	transition: opacity 200ms ease-in-out;
+}
+.close.show {
+	opacity: 1;
+}
+.modal.show {
+	display: block;
+	left: 105px;
+}
+.modal-content {
+	margin: auto;
+	display: block;
+	max-height: 100%;
+	transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+	border-radius: 8px;
+	cursor: initial;
+}
+.close {
+	position: fixed;
+	top: 18px;
+	right: 11px;
+	cursor: pointer;
+	display: block;
+	background: white;
+	padding: 8px;
+	border-radius: 0 8px 0 4px;
+}
+
+@media (min-width: 31.25em) {
+	.gallery {
+		column-count: 2;
+	}
+}
 @media (min-width: 43.75em) {
 	.sidebar-buttons__shuffle-title {
-		/* margin-right: 2rem; */
 		display: block;
 	}
 	.gallery {
@@ -129,6 +162,19 @@ p {
 	}
 }
 @media (min-width: 62.5em) {
+	body {
+		flex-direction: row;
+	}
+	.sidebar {
+		padding: var(--gap) 0 0 var(--gap);
+		height: 100vh;
+		flex-direction: column;
+		justify-content: initial;
+	}
+	.sidebar-buttons {
+		flex-direction: column;
+		margin-top: 3rem;
+	}
 	.sidebar-buttons__line {
 		display: none;
 	}
@@ -144,16 +190,6 @@ p {
 		margin-bottom: 1rem;
 		margin-top: calc(var(--gap) * -0.5);
 	}
-	/* shake thingy */
-
-	.sidebar-buttons__shuffle:hover {
-		/* Start the shake animation and make the animation last for 0.5 seconds */
-		animation: shake 0.7s;
-
-		/* When the animation is finished, start again */
-		animation-iteration-count: infinite;
-	}
-
 	@keyframes shake {
 		0% {
 			transform: translate(1px, 0) rotate(0deg);
@@ -189,8 +225,13 @@ p {
 			transform: translate(1px, 0) rotate(-1deg);
 		}
 	}
+	.sidebar-buttons__shuffle:hover {
+		animation: shake 0.7s;
+		animation-iteration-count: infinite;
+	}
 	.gallery {
 		padding-top: var(--gap);
+		column-count: 3;
 	}
 	.sidebar-logo.--desktop {
 		display: block;
@@ -199,129 +240,22 @@ p {
 	.sidebar-logo.--mobile {
 		display: none;
 	}
-	.gallery {
-		column-count: 3;
-	}
-}
-
-@media (min-width: 80em) {
-	.gallery {
-		column-count: 4;
-	}
-}
-
-.image-container {
-	max-width: none !important;
-	width: 100%;
-	display: block;
-	margin-bottom: var(--gap);
-	border-radius: 8px;
-	object-fit: contain;
-	height: auto !important;
-	background-size: contain;
-	background-color: rgb(240 240 240);
-}
-/* Style the modal (full-screen image overlay) */
-/* .modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(255, 255, 255, 1);
-	transition: background-color 0.5s ease;
-	border-radius: 10px;
-} */
-
-.modal {
-	cursor: pointer;
-	display: none; /* Initially hidden */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 100%; /* Start from the right of the viewport */
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	transition: left 1s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth transition for sliding effect */
-	background-color: white;
-	padding: var(--gap);
-	padding-top: 5.125rem;
-}
-@media (min-width: 62.5em) {
 	.modal-content {
 		max-width: 100%;
 	}
-
 	.modal {
-		width: calc(100% - 89px); /* Full width */
-		height: 100%; /* Full height */
+		width: calc(100% - 89px);
+		height: 100%;
 		padding-top: var(--gap);
 	}
-}
-.close {
-	opacity: 0; /* Start with the close button hidden */
-	transition: opacity 200ms ease-in-out; /* Smooth transition for opacity changes */
-}
-
-.close.show {
-	opacity: 1; /* Fully visible when the modal is open */
-}
-.modal.show {
-	display: block;
-	left: 105px; /* Slide in to view - sidebar mas gap*/
-}
-
-/* Modal Content (image) */
-.modal-content {
-	margin: auto;
-	display: block;
-	max-height: 100%;
-	/* if disabled the above makes a nice full window modal */
-	transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth transition for scaling */
-	border-radius: 8px;
-	cursor: initial;
-}
-
-/* The Close Button */
-.close {
-	position: fixed;
-	top: 18px;
-	right: 11px;
-
-	cursor: pointer;
-	display: block;
-	background: white;
-	padding: 8px;
-	border-radius: 0 8px 0 4px;
-}
-
-@media (min-width: 62.5em) {
 	.close {
 		position: absolute;
 		top: 16px;
 		right: 16px;
 	}
 }
-/* 
-
-.image-container {
-    margin: 10px;
-    border: 1px solid #ccc;
-    display: inline-block;
-    position: relative;
+@media (min-width: 80em) {
+	.gallery {
+		column-count: 4;
+	}
 }
-
-.myImg {
-    display: block;
-    width: 100%;
-    height: auto;
-    transition: transform 0.2s; 
-}
-
-.myImg:hover {
-    transform: scale(1.1);
-} */
