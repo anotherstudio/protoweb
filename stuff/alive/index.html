@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<div class="container">
+  
+  <div id="years" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Years</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceYears"></div>
+      <span class="individual-label">years</span>
+    </div>
+  </div>
+  <div id="months" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Months</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceMonths"></div>
+      <span class="individual-label">Months</span>
+    </div>
+  </div>
+  <div id="days" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Days</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceDays"></div>
+      <span class="individual-label">Days</span>
+    </div>
+  </div>
+  <div id="hours" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Hours</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceHours"></div>
+      <span class="individual-label">Hours</span>
+    </div>
+  </div>
+  <div id="minutes" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Minutes</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceMinutes"></div>
+      <span class="individual-label">Minutes</span>
+    </div>
+  </div>
+  <div id="seconds" class="time-unit">
+    <div class="number"></div>
+    <div class="label">Seconds</div>
+    <div class="individual">
+      <div class="" id="timeDifferenceSeconds"></div>
+      <span class="individual-label">Seconds</span>
+    </div>
+  </div>
+  
+  <div id="hourglassCanvas"></div>
+
+</div>
+
+<!-- Add this inside the <body> tag -->
+
+<!-- Modal Dialog -->
+<div id="myModal" class="modal">
+  <div class="modal-content">
+      <p>Please enter your birthday:</p>
+      <input type="date" id="birthdateInput">
+      <button class="button" onclick="submitBirthday()">Submit</button>
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/matter-js@0.16.0/build/matter.min.js"></script>
+  <script src="script.js"></script>
+
+
+</body></html>

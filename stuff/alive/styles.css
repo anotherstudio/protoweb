@@ -1,0 +1,167 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  font-family: helvetica;
+  font-weight: 700;
+  padding-left: 4rem;
+}
+.container {
+  display: flex;
+  gap: 1rem;
+  color: white;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+
+  .number {
+    font-size: 72px;
+  }
+  .label {
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    padding-left: 0.25rem;
+  }
+
+  & > div {
+    width: 100px;
+  }
+
+  .individuals {
+    width: 100%;
+    flex-basis: 100%;
+    margin-top: 20px;
+  }
+  .individual {
+    display: flex;
+    gap: 4px;
+    position: relative;
+    padding-block: 0.25rem;
+    font-size: 14px;
+    width: 1px;
+    margin: 0;
+    color: black;
+    transition: color 0.3s, letter-spacing 3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      background-color: black;
+      width: 1px;
+      top: 100%;
+      bottom: 1.6875rem;
+      transition: background-color 0.3s, top 1s;
+    }
+  }
+  & > div:hover .individual {
+    color: white;
+    letter-spacing: 1em;
+  }
+  & > div:hover .individual:before {
+    top: 0.625rem;
+    background-color: white;
+  }
+  & > div:nth-child(1) .individual {
+    padding-top: 100px;
+  }
+  & > div:nth-child(2) .individual {
+    padding-top: 140px;
+  }
+  & > div:nth-child(3) .individual {
+    padding-top: 180px;
+  }
+  & > div:nth-child(4) .individual {
+    padding-top: 220px;
+  }
+  & > div:nth-child(5) .individual {
+    padding-top: 260px;
+  }
+  & > div:nth-child(6) .individual {
+    padding-top: 300px;
+  }
+}
+.individual-label {
+  font-size: 10px;
+  margin-left: 6px;
+  position: relative;
+  top: 2px;
+}
+#hourglassCanvas {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: #111;
+}
+
+/* Modal Styles */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+.modal-content p {
+  display: flex;
+  align-items: center;
+}
+.modal-content * {
+  height: 55px;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 0;
+  border: 1px solid #888;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.button {
+  appearance: none;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  color: white;
+  background-color: black;
+  border: 1px solid black;
+  padding: 1rem 2rem;
+  cursor: pointer;
+}
+#birthdateInput {
+  appearance: none;
+  border: 0;
+  padding: 1rem;
+  border: 1px solid;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* More styles can be added here for buttons, input fields etc. */
