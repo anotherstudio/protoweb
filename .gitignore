@@ -1,0 +1,55 @@
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Config folder
+config
+
+# Node dependencies
+node_modules
+
+# Nuxt dev/build general output
+.nitro
+.output
+
+# Nuxt dev build output
+.nuxt
+.data
+
+# Nuxt dev/build generate output
+dist
+
+# Yarn
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Cache files
+.cache
+
+# Stylelint cache
+.stylelintcache
+
+# ESLint cache
+.eslintcache
+
+# Logs
+*.log
+logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Unlighthouse
+.unlighthouse
+
+# Visual Studio
+.vscode
+
+# macOS
+.DS_Store
