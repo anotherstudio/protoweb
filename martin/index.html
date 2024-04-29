@@ -84,5 +84,20 @@
 			</div>
 		</main>
 		<script src="script.js"></script>
+		<script>
+			// Check if the user has a dark theme enabled
+			if (
+				window.matchMedia &&
+				window.matchMedia("(prefers-color-scheme: dark)").matches
+			) {
+				// Dark mode
+				document.getElementById("favicon").href =
+					"favicon-32x32--dark.png";
+			} else {
+				// Light mode
+				document.getElementById("favicon").href =
+					"favicon-32x32--light.png";
+			}
+		</script>
 	</body>
 </html>
